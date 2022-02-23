@@ -73,7 +73,50 @@ public class TicTacToeGame {
         }
 
         public static void main(String[]args) throws IOException{
-            
+            Scanner in = new Scanner(System.in);
+            gameBoard = new String[9];
+            turn = "X";
+            String winner = null;
+
+            for(int a=0; a<9; a++){
+                gameBoard[a] = String.valueOf(a+1);
+            }
+            System.out.println("Welcome to 3x3 Tic tac toe!");
+            printBoard();
+
+            System.out.println("X will play first. Enter a slot number ro place X in: ");
+            while(winner==null){
+                int numInput;
+                try{
+                   numInput = in.nextInt();
+                   if(!(numInput>0 && numInput<=9)){
+                       System.out.println("Invalid input; re-enter slot number");
+                       continue;
+                   }
+                }catch(InputMismatchException e){
+                    System.out.println("Invalid input, re-enter slot number");
+                    continue;
+                }
+
+                if (gameBoard[numInput-1].equals(String.valueOf(numInput))){
+                    gameBoard[numInput-1] = turn;
+
+                    if(turn.equals("X")){
+                        turn = "O";
+                    }else{
+                        turn = "X";
+                    }
+                    printBoard();
+                    winner = checkWinner();
+                }else{
+                    System.out.println("Slot already taken, re-enter the slot number");
+                }
+            }
+            if(winner.equalsIgnoreCase("draw")){
+                System.out.println("It is a draw! Thanks for playing");
+            }else{
+                System.out.println("Congratulations! "+winner+"'s have won! Thanks for playing");
+            }
         }
     }
 
