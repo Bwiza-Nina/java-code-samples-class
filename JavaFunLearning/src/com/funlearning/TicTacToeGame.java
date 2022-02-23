@@ -8,6 +8,7 @@ public class TicTacToeGame {
     static String[] gameBoard;
     static String turn;
 
+    //to check if the diagonals, rows, or columns match
     static String checkWinner(){
         for(int a=0; a<8; a++) {
             String line = null;
@@ -39,9 +40,12 @@ public class TicTacToeGame {
                 default:
                     break;
             }
+            //if X is the winner
             if (line.equals("XXX")) {
                 return "X";
-            } else if (line.equals("OOO")) {
+            }
+            //if O is the winner
+            else if (line.equals("OOO")) {
                 return "O";
             }
         }
@@ -52,10 +56,12 @@ public class TicTacToeGame {
                 return "draw";
             }
         }
+        //To enter X or O at the exact place on the board
         System.out.println(turn+"'s turn, enter a slot number to place "+turn+" in");
         return null;
         }
 
+        //To print the board
         static void printBoard(){
             System.out.println("|---|---|---|");
             System.out.println("| " + gameBoard[0] + " | "
@@ -86,7 +92,9 @@ public class TicTacToeGame {
 
             System.out.println("X will play first. Enter a slot number ro place X in: ");
             while(winner==null){
+                //numInput is used to take the number entered by the player
                 int numInput;
+                //Exception handling
                 try{
                    numInput = in.nextInt();
                    if(!(numInput>0 && numInput<=9)){
@@ -98,6 +106,7 @@ public class TicTacToeGame {
                     continue;
                 }
 
+                //to decide who's turn it is
                 if (gameBoard[numInput-1].equals(String.valueOf(numInput))){
                     gameBoard[numInput-1] = turn;
 
@@ -112,9 +121,12 @@ public class TicTacToeGame {
                     System.out.println("Slot already taken, re-enter the slot number");
                 }
             }
+            //if there is no winner, to logic to decide to do so
             if(winner.equalsIgnoreCase("draw")){
                 System.out.println("It is a draw! Thanks for playing");
-            }else{
+            }
+            //If there is a winner
+            else{
                 System.out.println("Congratulations! "+winner+"'s have won! Thanks for playing");
             }
         }
