@@ -78,7 +78,56 @@ class MyForm extends JFrame implements ActionListener{
         name.setLocation(100, 100);
         c.add(name);
 
+        tname = new JTextField();
+        tname.setFont(new Font("Arial", Font.PLAIN, 15));
+        tname.setSize(190, 20);
+        tname.setLocation(200, 100);
+        c.add(tname);
+
+        mno = new JLabel("Mobile");
+        mno.setFont(new Font("Arial", Font.PLAIN, 20));
+        mno.setSize(100, 20);
+        mno.setLocation(100, 150);
+        c.add(mno);
+
+        tmno = new JTextField();
+        tmno.setFont(new Font("Arial", Font.PLAIN, 15));
+        tmno.setSize(150, 20);
+        tmno.setLocation(200, 150);
+        c.add(tmno);
+
+        gender = new JLabel("Gender");
+        tmno.setFont(new Font("Arial", Font.PLAIN, 20));
+        gender.setSize(100, 20);
+        gender.setLocation(100, 200);
+        c.add(gender);
+
+        male = new JRadioButton("Male");
+        male.setFont(new Font("Arial", Font.PLAIN, 15));
+        male.setSelected(true);
+        male.setSize(75, 20);
+        male.setLocation(200, 200);
+        c.add(male);
+
+        female = new JRadioButton("Female");
+        male.setFont(new Font("Arial", Font.PLAIN, 15));
+        female.setSelected(false);
+        female.setSize(80, 20);
+        female.setLocation(275, 200);
+        c.add(female);
+
+        gengp = new ButtonGroup();
+        gengp.add(male);
+        gengp.add(female);
+
+        dob = new JLabel("Date of birth");
+        dob.setFont(new Font("Arial", Font.PLAIN, 20));
+        dob.setSize(100, 20);
+        dob.setLocation(100, 250);
+        c.add(dob);
+
         
+
     }
 
     @Override
