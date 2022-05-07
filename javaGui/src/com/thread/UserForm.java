@@ -126,7 +126,48 @@ class MyForm extends JFrame implements ActionListener{
         dob.setLocation(100, 250);
         c.add(dob);
 
-        
+        date = new JComboBox(dates);
+        date.setFont(new Font("Aria;", Font.PLAIN, 15));;
+        date.setSize(50, 20);
+        date.setLocation(250, 250);
+        c.add(date);
+
+        month = new JComboBox(months);
+        month.setFont(new Font("Arial", Font.PLAIN, 15));
+        month.setSize(60, 20);
+        month.setLocation(250, 250);
+        c.add(month);
+
+        year = new JComboBox(years);
+        year.setFont(new Font("Arial", Font.PLAIN, 15));
+        year.setSize(60, 20);
+        year.setLocation(320, 250);
+        c.add(year);
+
+        add = new JLabel("Address");
+        add.setFont(new Font("Arial", Font.PLAIN, 20));
+        add.setSize(100, 20);
+        add.setLocation(100, 300);
+        c.add(add);
+
+        tadd = new JTextArea();
+        tadd.setFont(new Font("Arial", Font.PLAIN, 15));
+        tadd.setSize(200, 75);
+        tadd.setLocation(200, 300);
+        tadd.setLineWrap(true);
+        c.add(tadd);
+
+        term = new JCheckBox("Accept Terms And Conditions.");
+        term.setFont(new Font("Arial", Font.PLAIN, 15));
+        term.setSize(250, 20);
+        term.setLocation(150, 400);
+        c.add(term);
+
+        submit = new JButton("Submit");
+        submit.setFont(new Font("Arial", Font.PLAIN, 15));
+        submit.setSize(100, 20);
+        submit.setLocation(150, 450);
+        submit.addActionListener(this);
 
     }
 
