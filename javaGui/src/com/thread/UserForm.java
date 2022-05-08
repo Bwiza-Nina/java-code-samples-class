@@ -120,7 +120,7 @@ class MyForm extends JFrame implements ActionListener{
         gengp.add(male);
         gengp.add(female);
 
-        dob = new JLabel("Date of birth");
+        dob = new JLabel("DOB");
         dob.setFont(new Font("Arial", Font.PLAIN, 20));
         dob.setSize(100, 20);
         dob.setLocation(100, 250);
