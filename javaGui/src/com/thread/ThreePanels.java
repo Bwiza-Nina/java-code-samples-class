@@ -4,10 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 
-class MyForm extends JFrame implements ActionListener{
+
+
+class MyFrame extends JFrame implements ActionListener{
     private Container c;
     private JLabel title;
     private JLabel name;
@@ -25,11 +29,11 @@ class MyForm extends JFrame implements ActionListener{
     private JLabel add;
     private JTextArea tadd;
     private JCheckBox term;
-    private JButton submit;
-    private JButton reset;
     private JTextArea tout;
     private JLabel res;
     private JTextArea resadd;
+    private JButton submit;
+    private JButton reset;
 
     private String dates[] = {
             "1", "2", "3", "4", "5",
@@ -57,7 +61,7 @@ class MyForm extends JFrame implements ActionListener{
             "2019"
     };
 
-    public MyForm(){
+    public MyFrame(){
         setTitle("Registration Form");
         setBounds(300, 90, 900, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -242,9 +246,40 @@ class MyForm extends JFrame implements ActionListener{
     }
 }
 
-public class UserForm {
+public class ThreePanels extends Frame {
 
-    public static void main(String []args ) throws IOException{
-        MyForm form = new MyForm();
+
+
+
+    public ThreePanels(){
+        Label heading = new Label("This is the heading");
+        Panel p1 = new Panel();
+        p1.add(heading);
+        Label content = new Label();
+        Panel p2 = new Panel();
+        p2.add(content);
+        Label status = new Label("This is the status section");
+        Panel p3 = new Panel();
+        p3.add(status);
+        this.setTitle("AWT");
+        this.setLayout(new GridLayout(3,1));
+        this.setBounds(0,0, 700, 500);
+        this.setVisible(true);
+        this.add(p1);
+        this.add(p2);
+        this.add(p3);
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                dispose();
+            }
+        });
     }
+    public static void main(String[] args) {
+        new ThreePanels();
+    }
+
+
 }
+
+
